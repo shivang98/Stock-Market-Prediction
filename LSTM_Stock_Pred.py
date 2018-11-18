@@ -91,7 +91,7 @@ def LSTM_Pred(tick):
 
         start = time.time()
         model.compile(loss='mse', optimizer='rmsprop')
-        print ('compilation time : ', time.time() - start)
+        print('compilation time : ', time.time() - start)
         return model
 
     def load_data(stock, seq_len):
@@ -142,4 +142,7 @@ def LSTM_Pred(tick):
 
     # in case want to display accuracy use
     # return(p, y_test, accuracy_train, accuracy_test)
+
+    p = np.reshape(p, p.shape[0]).tolist()
+    y_test = np.reshape(y_test, y_test.shape[0]).tolist()
     return (p, y_test)
